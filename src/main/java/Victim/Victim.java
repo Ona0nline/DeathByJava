@@ -21,19 +21,24 @@ public class Victim {
     public static void main(String[] args){
         scanner = new Scanner(System.in);
         System.out.println(ansi().fgBrightRed().bold().a("*** WHO KILLED MR.JAVAHART? *** ").reset().toString());
-        System.out.println("Choose a number to proceed:1)accuse\n2)go-to\n3)talk-to");
+        System.out.println("Choose a number to proceed:\n1)accuse\n2)go-to\n3)talk-to");
         Integer choice = scanner.nextInt();
-        switch (choice){
-            case 1:
-                accuse();
-            case 2:
-                goTo();
-            case 3:
-                talkTo();
 
+        while (true){
+            switch (choice){
+                case 1:
+                    accuse();
+                case 2:
+                    goTo();
+                case 3:
+                    talkTo();
+                default:
+                    System.out.println("Invalid option..");
+
+            }
         }
-        String answer = scanner.nextLine();
-        if(accuse().equals(answer)){
+
+        if(accuse().equals(this.murderer)){
             System.out.println(ansi().fgBrightGreen().bold().a("CONGRATULATIONS DETECTIVE...They didn't do it alone though..").reset().toString());
         }else{
             System.out.println("You've got the wrong guy...");
