@@ -21,32 +21,36 @@ public class Victim {
     public static void main(String[] args){
         scanner = new Scanner(System.in);
         System.out.println(ansi().fgBrightRed().bold().a("*** WHO KILLED MR.JAVAHART? *** ").reset().toString());
-        System.out.println("Choose a number to proceed:\n1)accuse\n2)go-to\n3)talk-to");
-        Integer choice = scanner.nextInt();
 
         while (true){
-            switch (choice){
-                case 1:
-                    accuse();
-                case 2:
-                    goTo();
-                case 3:
-                    talkTo();
-                default:
-                    System.out.println("Invalid option..");
+            main_menu();
+        }
+//        String encodedLetter = "SSBhbSBzbyBzb3JyeSBteSBsb3ZlLCBJIGhhdmUgbWFkZSBhIGdyYXZlIG1pc3Rha2UuIERlc3BpdGUgbXkgcmVuZGV6dm91cyB3aXRoIHRoZSBuYW5ueSwgc2hlIGlzIG5vdGhpbmcgY29tcGFyZWQgdG8geW91LiBJIGxvdmUgeW91LiBTaGUgd2FzIG5vdCB5b3UuIEl0IHdhcyB0aGUgbmFubnkuIE15IGRheXMgd2VyZSBudW1iZXJlZC4=\n";
 
+    }
+
+    private static String main_menu(){
+        System.out.println("Choose a number to proceed:\n1)accuse\n2)go-to\n3)talk-to\n4)main menu");
+        Integer choice = scanner.nextInt();
+
+        switch (choice){
+            case 1 -> {
+                accuse();
+                if(accuse().equals(murderer)){
+                    System.out.println(ansi().fgBrightGreen().bold().a("CONGRATULATIONS DETECTIVE...They didn't do it alone though..").reset().toString());
+                }else{
+                    System.out.println("You've got the wrong guy...");
+                }
             }
+            case 2 -> {goTo();}
+            case 3 -> {System.out.println(talkTo());}
+            case 4 ->{System.out.println(main_menu());}
+
+            default -> System.out.println("Invalid option..");
+
+
         }
-
-        if(accuse().equals(this.murderer)){
-            System.out.println(ansi().fgBrightGreen().bold().a("CONGRATULATIONS DETECTIVE...They didn't do it alone though..").reset().toString());
-        }else{
-            System.out.println("You've got the wrong guy...");
-        }
-
-        String encodedLetter = "SSBhbSBzbyBzb3JyeSBteSBsb3ZlLCBJIGhhdmUgbWFkZSBhIGdyYXZlIG1pc3Rha2UuIERlc3BpdGUgbXkgcmVuZGV6dm91cyB3aXRoIHRoZSBuYW5ueSwgc2hlIGlzIG5vdGhpbmcgY29tcGFyZWQgdG8geW91LiBJIGxvdmUgeW91LiBTaGUgd2FzIG5vdCB5b3UuIEl0IHdhcyB0aGUgbmFubnkuIE15IGRheXMgd2VyZSBudW1iZXJlZC4=\n";
-
-
+        return "main menu";
     }
 
     private static void goTo(){
@@ -72,21 +76,34 @@ public class Victim {
 
         System.out.println("Who do you want to talk to?:\n1)The baby\n2)The nanny\n3)The chef\n4)Mrs Javahart\n5)The Gardener");
         Integer suspect = scanner.nextInt();
-        switch(suspect){
-            case 1:
-                return new BabyJavahart().clue();
-            case 2:
-                return new Nanny().clue();
-            case 3:
-                return new Chef().clue();
-            case 4:
-                return new MrsJavahart().clue();
-            case 5:
-                break;
-            default:
-                System.out.println("Check README.md for list of suspects");
+
+        while (true){
+
+            switch(suspect){
+                case 1 -> {
+                    return ansi().fgBrightYellow().bold().a(new BabyJavahart().clue()).reset().toString();
+                }
+
+                case 2 -> {
+                    return ansi().fgBrightYellow().bold().a(new Nanny().clue()).reset().toString();
+                }
+                case 3 ->{
+                    return ansi().fgBrightYellow().bold().a(new Chef().clue()).reset().toString();
+                }
+
+                case 4 -> {return ansi().fgBrightYellow().bold().a(new MrsJavahart().clue()).reset().toString();}
+
+
+                case 5 -> {
+                    return ansi().fgBrightYellow().bold().a(new Gardener().clue()).reset().toString();
+                }
+
+                default -> System.out.println("Check README.md for list of suspects");
+
+            }
+            return "";
         }
-        return "";
+
 
     }
 
