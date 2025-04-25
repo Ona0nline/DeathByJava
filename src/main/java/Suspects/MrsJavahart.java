@@ -1,6 +1,6 @@
 package Suspects;
 //Mrs Javahart motive = money, she didn't do it though
-public class MrsJavahart extends Suspects {
+public class MrsJavahart implements Suspects {
 
     @Override
     public String clue() {

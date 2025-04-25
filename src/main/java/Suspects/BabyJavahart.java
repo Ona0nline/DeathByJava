@@ -1,7 +1,7 @@
 package Suspects;
 
 //Will Babble a clue, pointing to chef
-public class BabyJavahart extends Suspects {
+public class BabyJavahart implements Suspects {
 
     @Override
     public String clue() {

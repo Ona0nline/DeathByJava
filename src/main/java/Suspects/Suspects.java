@@ -1,8 +1,8 @@
 package Suspects;
 
 import java.util.ArrayList;
-
-public abstract class Suspects {
+//Turned into interface for now because no need for a constructor or state fields
+public interface Suspects {
 
 
     public abstract String motive();
