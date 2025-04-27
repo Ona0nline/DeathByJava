@@ -40,26 +40,31 @@ public class Bedroom {
 
         } else{
             int i = 3;
-            while (i > 0){
-                System.out.println("1)Try again\n2)Go look for more clues");
-                 int choice = scanner.nextInt();
-                 scanner.nextLine();
+            while (i > 0) {
+                System.out.println("1) Try again\n2) Go look for more clues");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-                if(choice == 1){
-                    getpin();
-                    if (getpin().equals(Key)) {
-                        System.out.println(Ansi.ansi().fg(Ansi.Color.BLUE).a("Congratulations!\n\nYour next task is to navigate to the 'resources' package and write the code to read the contents of the file.\n\nOnce you've completed that, return here and decode the file contents. Finally, print the decoded message in the console to reveal the secret.").reset());
+                if (choice == 1) {
+                    String pin = getpin();
+                    if (pin.equals(Key)) {
+                        System.out.println(Ansi.ansi().fg(Ansi.Color.BLUE)
+                                .a("Congratulations!\n\nYour next task is to navigate to the 'resources' package and write the code to read the contents of the file.\n\nOnce you've completed that, return here and decode the file contents. Finally, print the decoded message in the console to reveal the secret.").reset());
+                        break;
+                    } else {
+                        System.out.println("Incorrect pin, please try again.");
                     }
-                }
-                else{
+                } else {
                     System.out.println("Try going somewhere else/talking to someone else.");
-
+                    break;
                 }
                 i--;
-                System.out.println("Safe Blocked.");
-                break;
+                if (i > 0) {
+                    System.out.println(i + " attempts remaining.");
+                } else {
+                    System.out.println("Safe Blocked.");
+                }
             }
-
 
         }
 
