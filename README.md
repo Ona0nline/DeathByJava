@@ -36,8 +36,9 @@ You can interact with them in the code by calling the `talkTo()` method. Some su
 ## 🧩 Scattered Clues (that may or may not help you...)
 
 > The gardener only works on Tuesdays.
-> Mr. Javahart died on a Thursday.
+> Mr. Javahart died on a Thursday - Today is Friday.
 > The nannys' name is "Odelia".
+> The chef has terrible memory and puts sticky notes everywhere.
 
 
 

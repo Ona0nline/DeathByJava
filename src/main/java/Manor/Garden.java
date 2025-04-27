@@ -6,6 +6,10 @@ import org.fusesource.jansi.Ansi;
 
 public class Garden {
 
+    public Garden() {
+
+    }
+
     public static void main(String[] args) throws InterruptedException {
         System.out.println(Ansi.ansi().fg(Ansi.Color.CYAN)
                 .a("You learn that on Wednesday evening, Mrs. Javahart took a stroll through the gardens.\n")

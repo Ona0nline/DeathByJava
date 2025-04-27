@@ -1,12 +1,10 @@
 package Victim;
-import Manor.Bedroom;
+import Manor.Kitchen;
+import Manor.Library;
 import Suspects.*;
-
-import javax.swing.*;
 
 import static org.fusesource.jansi.Ansi.ansi;
 
-import java.util.Base64;
 import java.util.Scanner;
 
 public class Victim {
@@ -32,6 +30,7 @@ public class Victim {
     private static String main_menu(){
         System.out.println("Choose a number to proceed:\n1)accuse\n2)go-to\n3)talk-to\n4)main menu");
         Integer choice = scanner.nextInt();
+        scanner.nextLine();
 
         switch (choice){
             case 1 -> {
@@ -42,7 +41,7 @@ public class Victim {
                     System.out.println("You've got the wrong guy...");
                 }
             }
-            case 2 -> {goTo();}
+            case 2 ->{System.out.println(goTo());}
             case 3 -> {System.out.println(talkTo());}
             case 4 ->{System.out.println(main_menu());}
 
@@ -53,24 +52,34 @@ public class Victim {
         return "main menu";
     }
 
-    private static void goTo(){
-        String prompt = "Where do you want to go?:\n1)The Bedroom\n2)The Garden\n3)The Kitchen\n4)The Library";
-        String roomname = scanner.nextLine();
-        switch(roomname){
-            case "Bedroom":
-//                Wife caught snooping around here on the Tuesday, by nanny
-                break;
-            case "Garden":
-//                Encoded letter under a rock, placed by husband on the Monday
-                break;
-            case "Kitchen":
-//                Baby saw chef chopping up tomatoes to prepare for the lunch on the Wednesday
-                break;
-            case "Library":
-//                The overheard conversation was in here, on a Wednesday, by wife
-                break;
+    private static String goTo(){
+        System.out.println("Where do you want to go?:\n1)The Bedroom\n2)The Garden\n3)The Kitchen\n4)The Library");
+        String roomname = scanner.nextLine().toLowerCase();
+        while (true){
+            switch(roomname){
+                case "bedroom" ->{
+                    return ansi().fgBrightYellow().bold().a("Physically go and visit the bedroom.").reset().toString();
+                }
+                case "garden" ->{
+                    return ansi().fgBrightYellow().bold().a("Physically go and visit the garden.").reset().toString();
+                }
+                case "kitchen" ->{
+                    System.out.println(ansi().fgBrightYellow().bold().a("You can interact with kitchen methods right here.").reset().toString());
+                    Kitchen kitchen = new Kitchen();
+                    System.out.println(kitchen.cabinetcode());
+
+                }
+
+                case "library" -> {
+//                    Hint check the resources package
+                    return ansi().fgBrightYellow().bold().a("You can interact with library methods right here.").reset().toString();
+                }
+                default -> System.out.println("Check README.md for list of areas");
+            }
+            return "";
         }
-    }
+        }
+
 
     private static String talkTo(){
 
