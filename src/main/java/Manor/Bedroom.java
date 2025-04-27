@@ -1,15 +1,20 @@
 package Manor;
 
+import org.fusesource.jansi.Ansi;
+
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Scanner;
 
-//There are multiple things in here. Different methods interact with different parts of the room. Wife was snooping around in the safe
+/***
+ Run the programme to read the safe pin hint.
+ If you feel like you know what it is, pass it in as a parameter in opensafe().
+***/
+
 public class Bedroom {
 
     private ArrayList<String> items;
     private static String safe_letter;
-    private static final String Key = "S2F0ZWx5bg==";
     private static Scanner scanner;
 
     public Bedroom(){
@@ -18,17 +23,21 @@ public class Bedroom {
 
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
-        opensafe("675");
+        safe_letter = "U2hlIHJvY2tzIHRoZSBjcmFkbGUsIHNvZnQgYW5kIHNsb3cKV2hpc3BlcmluZyBzZWNyZXRzIG9ubHkgd2Uga25vdwpIZXIgdG91Y2gsIGEgY29tZm9ydCwgbXkgaGVhcnQsIGFmbGFtZQpJbiBzaGFkb3dzIEkgY2FsbCBoZXIgYnkgYW5vdGhlciBuYW1lLg==";
+        byte[] decodedBytes = Base64.getDecoder().decode(safe_letter);
+        String decoded = new String(decodedBytes);
+        System.out.println(decoded);
+
+        opensafe("Odelia");
     }
 
     private static void opensafe(String Key) {
 
-        safe_letter = "U2hlIHJvY2tzIHRoZSBjcmFkbGUsIHNvZnQgYW5kIHNsb3cKV2hpc3BlcmluZyBzZWNyZXRzIG9ubHkgd2Uga25vdwpIZXIgdG91Y2gsIGEgY29tZm9ydCwgbXkgaGVhcnQsIGFmbGFtZQpJbiBzaGFkb3dzIEkgY2FsbCBoZXIgYnkgYW5vdGhlciBuYW1lLg==";
+
 
         if (getpin().equals(Key)) {
-            byte[] decodedBytes = Base64.getDecoder().decode(safe_letter);
-            String decoded = new String(decodedBytes);
-            System.out.println(decoded);
+            System.out.println(Ansi.ansi().fg(Ansi.Color.BLUE).a("Congratulations!\n\nYour next task is to navigate to the 'resources' package and write the code to read the contents of the file.\n\nOnce you've completed that, return here and decode the file contents. Finally, print the decoded message in the console to reveal the secret.").reset());
+
         } else{
             int i = 3;
             while (i > 0){
@@ -39,10 +48,7 @@ public class Bedroom {
                 if(choice == 1){
                     getpin();
                     if (getpin().equals(Key)) {
-                        byte[] decodedBytes = Base64.getDecoder().decode(safe_letter);
-                        String decoded = new String(decodedBytes);
-                        System.out.println(decoded);
-                        break;
+                        System.out.println(Ansi.ansi().fg(Ansi.Color.BLUE).a("Congratulations!\n\nYour next task is to navigate to the 'resources' package and write the code to read the contents of the file.\n\nOnce you've completed that, return here and decode the file contents. Finally, print the decoded message in the console to reveal the secret.").reset());
                     }
                 }
                 else{

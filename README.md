@@ -37,6 +37,8 @@ You can interact with them in the code by calling the `talkTo()` method. Some su
 
 > The gardener only works on Tuesdays.
 > Mr. Javahart died on a Thursday.
+> The nannys' name is "Odelia".
+
 
 
 ---
