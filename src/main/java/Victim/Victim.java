@@ -12,7 +12,7 @@ public class Victim {
     static Scanner scanner;
 
     public Victim(String murderer) {
-        this.murderer = "bmFubnk=\n";
+
 
     }
 
@@ -38,11 +38,7 @@ public class Victim {
             switch (choice){
                 case 1 -> {
                     accuse();
-                    if(accuse().equals(murderer)){
-                        System.out.println(ansi().fgBrightGreen().bold().a("CONGRATULATIONS DETECTIVE...They didn't do it alone though..").reset().toString());
-                    }else{
-                        System.out.println("You've got the wrong guy...");
-                    }
+                    System.exit(0);
                 }
                 case 2 ->{System.out.println(goTo());}
                 case 3 -> {System.out.println(talkTo());}
@@ -147,9 +143,9 @@ public class Victim {
 
     }
 
-    private static String accuse(){
-        System.out.println("Go ahead detective..who is it");
-        String answer = scanner.nextLine();
-        return answer;
+    private static Clues accuse(){
+        System.out.println("Go ahead detective...hand over the case you have built");
+        Clues report = new Clues();
+        return report;
     }
 }
