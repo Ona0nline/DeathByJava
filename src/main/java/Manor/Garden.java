@@ -12,7 +12,7 @@ public class Garden {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println(Ansi.ansi().fg(Ansi.Color.CYAN)
-                .a("You learn that on Wednesday evening, Mrs. Javahart took a stroll through the gardens.\n")
+                .a("You learn that on Wednesday morning, Mrs. Javahart took a stroll through the gardens.\n")
                 .a("Among the hedges, she caught fragmented voices — the gardener pleading, the nanny crying.\n")
                 .a("Although she couldn't hear it all, the words 'baby' and 'can't leave it behind' stuck with her.\n")
                 .a("Her mind raced. Had they betrayed her? Were they plotting something?\n")
