@@ -1,6 +1,6 @@
 package Suspects;
 
-//Nanny will point to baby saying it said something suspicious..
+
 public class Nanny implements Suspects {
 
     public String clue() {

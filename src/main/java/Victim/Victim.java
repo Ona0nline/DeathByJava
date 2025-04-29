@@ -1,6 +1,5 @@
 package Victim;
-import Manor.Kitchen;
-import Manor.Library;
+import Manor.*;
 import Suspects.*;
 
 import static org.fusesource.jansi.Ansi.ansi;

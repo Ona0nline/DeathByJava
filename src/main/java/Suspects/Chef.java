@@ -1,5 +1,5 @@
 package Suspects;
-//Chef will have no motive, + how can you trust a baby + no murder weapon
+
 public class Chef implements Suspects {
 
     public String clue(){

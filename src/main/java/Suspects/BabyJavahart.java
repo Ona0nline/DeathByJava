@@ -4,7 +4,7 @@ import org.fusesource.jansi.Ansi;
 
 import java.util.ArrayList;
 
-//Will Babble a clue, pointing to chef
+
 public class BabyJavahart implements Suspects {
 
     @Override
